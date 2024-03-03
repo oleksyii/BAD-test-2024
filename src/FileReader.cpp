@@ -8,8 +8,6 @@ FileReader::FileReader()
 FileReader::FileReader(std::string filename) : _filename(filename)
 {
     this->_result = new FileReaderResult;
-    this->_result->maxNum = 0;
-    std::cout << "FileName is: " << _filename << " Result max num is: " << _result->maxNum << std::endl;
 }
 
 FileReader::~FileReader()
@@ -162,23 +160,13 @@ void FileReader::findAscendingAndDescendingSequence() {
 
     {
         std::lock_guard<std::mutex> lock(_resultMutex); // Lock the mutex
-        _result->ascendingSequence = &maxAscendingSequence;
-        _result->descendingSequence = &maxDescendingSequence;
+        _result->ascendingSequence = maxAscendingSequence;
+        _result->descendingSequence = maxDescendingSequence;
     }
 
     return;
 
-    // std::cout << "Longest ascending sequence: ";
-    // for (const auto& num : maxAscendingSequence) {
-    //     std::cout << num << " ";
-    // }
-    // std::cout << std::endl;
 
-    // std::cout << "Longest descending sequence: ";
-    // for (const auto& num : maxDescendingSequence) {
-    //     std::cout << num << " ";
-    // }
-    // std::cout << std::endl;
 }
 
 FileReaderResult* FileReader::Eval()

@@ -1,5 +1,5 @@
-#ifndef FILE_READER.H
-#define FILE_READER.H
+#ifndef FILE_READER 
+#define FILE_READER 
 
 #include <string>
 #include <map>
@@ -10,6 +10,7 @@
 #include <limits>
 #include <vector>
 #include <algorithm>
+#include <iomanip>
 #include "FileReaderResult.h"
 
 
